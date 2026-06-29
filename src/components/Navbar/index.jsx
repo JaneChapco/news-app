@@ -5,10 +5,11 @@ import { FaRegNewspaper } from "react-icons/fa6";
 import { IoMdPersonAdd } from "react-icons/io";
 import { CiLogin } from "react-icons/ci";
 import { NavLink } from "react-router";
+import "./index.css";
 
 function AppNavbar() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary navbar">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           <img

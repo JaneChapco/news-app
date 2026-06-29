@@ -1,0 +1,19 @@
+body {
+  background-color: #f7f1ea;
+  color: #2e2a27;
+}
+
+.card {
+  background-color: #fffdf9;
+  border: 1px solid #d8c3a5;
+  border-radius: 12px;
+}
+
+.btn-primary {
+  background-color: #8b6b4a;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #6f533b;
+}

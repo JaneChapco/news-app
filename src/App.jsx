@@ -1,6 +1,6 @@
 import "./App.css";
 import { Container } from "react-bootstrap";
-import AppNavbar from "./components/AppNavbar";
+import AppNavbar from "./components/Navbar/";
 import { Routes, Route } from "react-router";
 import Landing from "./pages/Landing";
 import LatestNews from "./pages/LatestNews";
