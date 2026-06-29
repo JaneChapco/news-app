@@ -28,7 +28,7 @@ function Landing() {
   return (
     <>
       <div className="text-center">
-        <h1 className="display-3">Welcome to News App</h1>
+        <h1 className="display-3">Welcome to your Morning Brief</h1>
         <Link to="/latest-news" className="btn btn-lg btn-dark">
           Read latest news
         </Link>

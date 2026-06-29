@@ -1,6 +1,6 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { IoMdPersonAdd } from "react-icons/io";
 import { CiLogin } from "react-icons/ci";
@@ -10,18 +10,15 @@ function AppNavbar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand 
-          as={NavLink}
-          to="/"
-        >
+        <Navbar.Brand as={NavLink} to="/">
           <img
-            alt="logo"
-            src="/logo.png"
+            alt="coffee cup logo"
+            src="/coffee-cup.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
-          />{' '}
-          NewsApp
+          />{" "}
+          Morning Brief
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -29,34 +26,25 @@ function AppNavbar() {
             <Nav.Link
               as={NavLink}
               to="/latest-news"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <FaRegNewspaper />{' '}
-              Latest News
+              <FaRegNewspaper /> Latest News
             </Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link 
+            <Nav.Link
               as={NavLink}
               to="/subscribe"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <IoMdPersonAdd />{' '}
-              Subscribe
+              <IoMdPersonAdd /> Subscribe
             </Nav.Link>
             <Nav.Link
               as={NavLink}
               to="/login"
-              className={({ isActive }) =>
-                isActive ? "active" : ""
-              }
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <CiLogin />{' '}
-              Login
+              <CiLogin /> Login
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
