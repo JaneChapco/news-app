@@ -1,0 +1,66 @@
+b .btn-lg {
+  background-color: #875e4b !important;
+  color: white !important;
+  border: 1px solid #875e4b !important;
+}
+
+.btn-lg:hover {
+  background-color: #6f4b3b !important;
+  color: white !important;
+}
+
+body,
+#root {
+  background-color: #f7f1eb;
+}
+
+.landing-hero {
+  background-color: #efe2d6;
+  border: 1px solid #d6b8a5;
+  border-radius: 18px;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.landing-hero h1 {
+  color: #4b2f24;
+}
+
+.landing-hero p {
+  color: #6f4e37;
+}
+
+.landing-hero .btn {
+  background-color: #875e4b;
+  color: white;
+  border: none;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.breaking-section,
+.side-section {
+  background-color: transparent;
+  padding: 0;
+}
+
+.breaking-section {
+  grid-row: span 2;
+}
+
+.breaking-section article,
+.breaking-section .card {
+  min-height: 100%;
+}
+
+.side-section h2,
+.breaking-section h2 {
+  color: #4b2f24;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #d6b8a5;
+  padding-bottom: 0.5rem;
+}

@@ -3,7 +3,10 @@ import { Container } from "react-bootstrap";
 import AppNavbar from "./components/Navbar/";
 import { Routes, Route } from "react-router";
 import Landing from "./pages/Landing";
-import LatestNews from "./pages/LatestNews";
+import MyNews from "./pages/MyNews";
+import Subscribe from "./pages/Subscribe";
+import Login from "./pages/Login";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,9 +15,12 @@ function App() {
       <Container className="mt-4">
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/latest-news" element={<LatestNews />} />
+          <Route path="/my-news" element={<MyNews />} />
+          <Route path="/subscribe" element={<Subscribe />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Container>
+      <Footer />
     </>
   );
 }

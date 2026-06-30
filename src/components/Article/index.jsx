@@ -1,14 +1,19 @@
-import { Card, Col, Badge } from "react-bootstrap";
-import articleFallbackImg from "../assets/article-fallback-image.jpg";
+import { Card, Col } from "react-bootstrap";
+import articleFallbackImg from "../../assets/article-fallback-image.jpg";
+import "./index.css";
 
 function Article({ article }) {
   return (
-    <Col className="my-1">
-      <Card style={{ width: "18rem" }} className="m-auto">
+    <Col className="my-2">
+      <Card className="w-100 card">
         <Card.Img
           variant="top"
           src={article.image_url || articleFallbackImg}
-          style={{ height: "200px" }}
+          style={{
+            height: "250px",
+            width: "100%",
+            objectFit: "cover",
+          }}
         />
         <Card.Body>
           <Card.Title style={{ minHeight: "72px" }}>
@@ -22,18 +27,14 @@ function Article({ article }) {
               : article.description ||
                 `No description exists. To read this article, click 'Read more'`}
           </Card.Text>
-          <a className="btn btn-dark" href={article.link} target="_blank">
+          <a
+            className="btn article-btn w-100"
+            href={article.link}
+            target="_blank"
+          >
             Read more
           </a>
-          <div className="mt-1">
-            {article.category.map((category, index) => (
-              <Badge pill bg="light" text="dark" key={index}>
-                {category.toUpperCase()}
-              </Badge>
-            ))}
-          </div>
         </Card.Body>
-        <Card.Footer className="text-muted">{article.source_name}</Card.Footer>
       </Card>
     </Col>
   );

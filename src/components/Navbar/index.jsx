@@ -9,7 +9,7 @@ import "./index.css";
 
 function AppNavbar() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary navbar">
+    <Navbar collapseOnSelect expand="lg" className="navbar">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           <img
@@ -26,10 +26,10 @@ function AppNavbar() {
           <Nav className="me-auto">
             <Nav.Link
               as={NavLink}
-              to="/latest-news"
+              to="/my-news"
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <FaRegNewspaper /> Latest News
+              <FaRegNewspaper /> My News
             </Nav.Link>
           </Nav>
           <Nav>
