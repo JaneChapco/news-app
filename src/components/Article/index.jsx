@@ -11,6 +11,9 @@ function Article({ article, xs = 12, sm = 6, lg = 3 }) {
         <Card.Img
           variant="top"
           src={article.image_url || articleFallbackImg}
+          onError={(e) => {
+            e.currentTarget.src = articleFallbackImg;
+          }}
           style={{
             height: "250px",
             width: "100%",
@@ -31,8 +34,9 @@ function Article({ article, xs = 12, sm = 6, lg = 3 }) {
           </Card.Text>
           <a
             className="btn article-btn w-100"
-            href={article.link}
+            href={article.link || article.url}
             target="_blank"
+            rel="noreferrer"
           >
             Read more
           </a>

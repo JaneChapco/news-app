@@ -1,70 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import { Row } from "react-bootstrap";
 import Article from "../../components/Article";
 import "./index.css";
 
-const mockTopArticles = [
-  {
-    article_id: "mock-top-1",
-    title: "Breaking Story Placeholder",
-    description: "This is fake top story text for layout practice.",
-    image_url: "https://placehold.co/600x400?text=Top+Story",
-  },
-  {
-    article_id: "mock-top-2",
-    title: "Breaking Story Placeholder",
-    description: "This is fake top story text for layout practice.",
-    image_url: "https://placehold.co/600x400?text=Top+Story",
-  },
-  {
-    article_id: "mock-top-3",
-    title: "Breaking Story Placeholder",
-    description: "This is fake top story text for layout practice.",
-    image_url: "https://placehold.co/600x400?text=Top+Story",
-  },
-  {
-    article_id: "mock-top-4",
-    title: "Breaking Story Placeholder",
-    description: "This is fake top story text for layout practice.",
-    image_url: "https://placehold.co/600x400?text=Top+Story",
-  },
-];
-
-const mockWorldArticles = [
-  {
-    article_id: "mock-world-1",
-    title: "World News Placeholder",
-    description: "This is fake world news text for layout practice.",
-    image_url: "https://placehold.co/600x400?text=World",
-  },
-  {
-    article_id: "mock-world-2",
-    title: "Another World Story",
-    description: "More fake world news for testing your layout.",
-    image_url: "https://placehold.co/600x400?text=World+News",
-  },
-];
-
-const mockWeatherArticles = [
-  {
-    article_id: "mock-weather-1",
-    title: "Weather Update Placeholder",
-    description: "This is fake weather text for layout practice.",
-    image_url: "https://placehold.co/600x400?text=Weather",
-  },
-  {
-    article_id: "mock-weather-2",
-    title: "Weekend Forecast Placeholder",
-    description: "More fake weather news for styling cards.",
-    image_url: "https://placehold.co/600x400?text=Forecast",
-  },
-];
-
 function Landing() {
-  const [topArticles] = useState(mockTopArticles);
-  const [worldArticles] = useState(mockWorldArticles);
-  const [weatherArticles] = useState(mockWeatherArticles);
+  const [topArticles, setTopArticles] = useState([]);
+  const [worldArticles, setWorldArticles] = useState([]);
+  const [weatherArticles, setWeatherArticles] = useState([]);
+  const API_KEY = "API_KEY";
+
+  useEffect(() => {
+    async function fetchLandingNews() {
+      try {
+        const res = await fetch(
+          `https://newsdata.io/api/1/latest?apikey=${API_KEY}&country=ca&language=en`,
+        );
+
+        const data = await res.json();
+        console.log(data);
+
+        const cleanArticles = (data.results || []).filter(
+          (article) => article.title && article.link,
+        );
+
+        const uniqueArticles = cleanArticles.filter(
+          (article, index, self) =>
+            index === self.findIndex((a) => a.title === article.title),
+        );
+
+        setTopArticles(uniqueArticles.slice(0, 4));
+        setWorldArticles(uniqueArticles.slice(4, 6));
+        setWeatherArticles(uniqueArticles.slice(6, 8));
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchLandingNews();
+  }, []);
 
   return (
     <>
@@ -84,8 +58,12 @@ function Landing() {
           <h2>Top Stories</h2>
 
           <Row>
-            {topArticles.map((article) => (
-              <Article key={article.article_id} article={article} lg={12} />
+            {topArticles.map((article, index) => (
+              <Article
+                key={article.article_id || article.link || index}
+                article={article}
+                lg={12}
+              />
             ))}
           </Row>
         </div>
@@ -94,11 +72,10 @@ function Landing() {
           <h2>World</h2>
 
           <Row>
-            {worldArticles.map((article) => (
+            {worldArticles.map((article, index) => (
               <Article
-                key={article.article_id}
+                key={article.article_id || article.link || index}
                 article={article}
-                sm={12}
                 lg={12}
               />
             ))}
@@ -109,11 +86,10 @@ function Landing() {
           <h2>Weather</h2>
 
           <Row>
-            {weatherArticles.map((article) => (
+            {weatherArticles.map((article, index) => (
               <Article
-                key={article.article_id}
+                key={article.article_id || article.link || index}
                 article={article}
-                sm={12}
                 lg={12}
               />
             ))}

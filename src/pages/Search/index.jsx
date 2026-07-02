@@ -2,19 +2,38 @@ import { useState } from "react";
 import { InputGroup, Form, Row, Button } from "react-bootstrap";
 import Article from "../../components/Article";
 import { CiSearch } from "react-icons/ci";
-import mockArticles from "../../data/mockArticles";
 import "./index.css";
 
+const API_KEY = "API_KEY";
+
 function Search() {
-  const [articles, setArticles] = useState(mockArticles);
+  const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("");
 
-  function searchArticles() {
-    const filteredArticles = mockArticles.filter((article) =>
-      article.title.toLowerCase().includes(query.toLowerCase()),
-    );
+  async function searchArticles() {
+    if (!query.trim()) return;
 
-    setArticles(filteredArticles);
+    try {
+      const res = await fetch(
+        `https://newsdata.io/api/1/latest?apikey=${API_KEY}&q=${query}&language=en`,
+      );
+
+      const data = await res.json();
+      console.log(data);
+
+      const cleanArticles = (data.results || []).filter(
+        (article) => article.title && article.link,
+      );
+
+      const uniqueArticles = cleanArticles.filter(
+        (article, index, self) =>
+          index === self.findIndex((a) => a.title === article.title),
+      );
+
+      setArticles(uniqueArticles);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -45,8 +64,11 @@ function Search() {
         </p>
       ) : (
         <Row>
-          {articles.slice(0, 8).map((article) => (
-            <Article article={article} key={article.article_id} />
+          {articles.map((article, index) => (
+            <Article
+              article={article}
+              key={article.article_id || article.link || index}
+            />
           ))}
         </Row>
       )}
