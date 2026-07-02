@@ -1,16 +1,35 @@
-# React + Vite
+### Morning Brief
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+- Responsive news application built with React
+- Multi-page routing using React Router
+- Landing page featuring **Top Stories**, **World News**, and **Weather** sections
+- Search page allowing users to search articles by keyword
+- My News page with country-based news filtering
+- Responsive article card layout using React Bootstrap
+- Fallback images and descriptions for missing article content
+- External links to full news articles
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React
+- React Router
+- React Bootstrap
+- CSS
+- NewsData.io API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Learnings
 
-## Expanding the ESLint configuration
+- Working with APIs and asynchronous data fetching
+- Managing component state with React hooks
+- Building reusable components
+- Implementing responsive layouts with Bootstrap grid
+- Handling missing API data gracefully
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Future Improvements
+
+- Add article bookmarking/favourites
+- Add dark mode
+- Add pagination or **Load More** functionality
+- Improve search with category/date filters
