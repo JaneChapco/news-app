@@ -3,7 +3,7 @@ import "./index.css";
 function Footer() {
   return (
     <>
-      <footer class="text-center border-top footer py-3">
+      <footer class="text-center footer py-3">
         <p className="mb-2 small text-muted">
           © 2026 Morning Brief. All rights reserved.
         </p>

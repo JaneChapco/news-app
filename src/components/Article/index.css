@@ -1,11 +1,12 @@
-.card {
-  background-color: #fff8f3 !important;
-  border: 1px solid #d9c385 !important;
+.article-card {
+  background-color: #f8f1ed !important;
+  border: 1px solid #b08968 !important;
   border-radius: 12px !important;
+  overflow: hidden;
 }
 
 .article-btn {
-  background-color: #8b6b4a !important;
+  background-color: #6f4e37 !important;
   border: none !important;
   color: white !important;
   display: flex !important;
@@ -15,5 +16,5 @@
 }
 
 .article-btn:hover {
-  background-color: #6f533b !important;
+  background-color: #583d2c !important;
 }

@@ -1,0 +1,31 @@
+.page-intro {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f3e7dd;
+  border: 1px solid #c9a892;
+  border-radius: 12px;
+}
+
+.page-intro h1 {
+  margin-bottom: 0.5rem;
+  color: #5c3d2e;
+}
+
+.page-intro p {
+  margin-bottom: 0;
+  color: #6f4e37;
+}
+
+.continue-btn {
+  background-color: #6f4e37 !important;
+  border: none !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}
+
+.continue-btn:hover {
+  background-color: #583d2c !important;
+}

@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { IoMdPersonAdd } from "react-icons/io";
 import { CiLogin } from "react-icons/ci";
+import { FaSearch } from "react-icons/fa";
 import { NavLink } from "react-router";
 import "./index.css";
 
@@ -30,6 +31,14 @@ function AppNavbar() {
               className={({ isActive }) => (isActive ? "active" : "")}
             >
               <FaRegNewspaper /> My News
+            </Nav.Link>
+
+            <Nav.Link
+              as={NavLink}
+              to="/search"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              <FaSearch /> Search
             </Nav.Link>
           </Nav>
           <Nav>

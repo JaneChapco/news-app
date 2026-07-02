@@ -7,6 +7,7 @@ import MyNews from "./pages/MyNews";
 import Subscribe from "./pages/Subscribe";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/my-news" element={<MyNews />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/subscribe" element={<Subscribe />} />
           <Route path="/login" element={<Login />} />
         </Routes>

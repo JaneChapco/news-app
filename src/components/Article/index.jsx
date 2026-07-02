@@ -5,7 +5,7 @@ import "./index.css";
 function Article({ article }) {
   return (
     <Col className="my-2">
-      <Card className="w-100 card">
+      <Card className="w-100 card article-card">
         <Card.Img
           variant="top"
           src={article.image_url || articleFallbackImg}
