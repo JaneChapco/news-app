@@ -39,11 +39,17 @@ function Search() {
         </Button>
       </InputGroup>
 
-      <Row>
-        {articles.map((article) => (
-          <Article article={article} key={article.article_id} />
-        ))}
-      </Row>
+      {articles.length === 0 ? (
+        <p className="text-center mt-4">
+          No articles found. Try another search.
+        </p>
+      ) : (
+        <Row>
+          {articles.slice(0, 8).map((article) => (
+            <Article article={article} key={article.article_id} />
+          ))}
+        </Row>
+      )}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { Row } from "react-bootstrap";
 import Article from "../../components/Article";
 import "./index.css";
 
@@ -82,25 +83,41 @@ function Landing() {
         <div className="breaking-section">
           <h2>Top Stories</h2>
 
-          {topArticles.map((article) => (
-            <Article key={article.article_id} article={article} />
-          ))}
+          <Row>
+            {topArticles.map((article) => (
+              <Article key={article.article_id} article={article} lg={12} />
+            ))}
+          </Row>
         </div>
 
         <div className="side-section">
           <h2>World</h2>
 
-          {worldArticles.map((article) => (
-            <Article key={article.article_id} article={article} />
-          ))}
+          <Row>
+            {worldArticles.map((article) => (
+              <Article
+                key={article.article_id}
+                article={article}
+                sm={12}
+                lg={12}
+              />
+            ))}
+          </Row>
         </div>
 
         <div className="side-section">
           <h2>Weather</h2>
 
-          {weatherArticles.map((article) => (
-            <Article key={article.article_id} article={article} />
-          ))}
+          <Row>
+            {weatherArticles.map((article) => (
+              <Article
+                key={article.article_id}
+                article={article}
+                sm={12}
+                lg={12}
+              />
+            ))}
+          </Row>
         </div>
       </section>
     </>

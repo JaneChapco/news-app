@@ -39,18 +39,19 @@ function MyNews() {
             onChange={(e) => setCountry(e.target.value)}
           >
             <option value="">Select country</option>
-            <option value="us">United States</option>
-            <option value="gb">United Kingdom</option>
-            <option value="ae">United Arab Emirates</option>
+            <option value="au">Australia</option>
+            <option value="ca">Canada</option>
             <option value="fr">France</option>
             <option value="de">Germany</option>
             <option value="in">India</option>
-            <option value="au">Australia</option>
+            <option value="ae">United Arab Emirates</option>
+            <option value="gb">United Kingdom</option>
+            <option value="us">United States</option>
           </Form.Select>
         </div>
 
         <Row>
-          {articles.map((article) => (
+          {articles.slice(0, 8).map((article) => (
             <Article article={article} key={article.article_id} />
           ))}
         </Row>
